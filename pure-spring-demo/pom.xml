@@ -13,16 +13,11 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.3.6</spring.version>
-        <junit.version>5.7.1</junit.version>
+        <spring.version>5.3.23</spring.version>
+        <junit.version>5.9.0</junit.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>shared-static-resources</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -31,7 +26,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>1.4.4</version>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -48,12 +43,12 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>4.6.0-1</version>
+            <version>5.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
-            <version>0.40</version>
+            <version>0.45</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

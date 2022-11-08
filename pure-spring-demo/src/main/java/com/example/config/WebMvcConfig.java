@@ -11,30 +11,32 @@ import org.springframework.web.servlet.resource.VersionResourceResolver;
 @EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
 
-  @Override
-  public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-    configurer.enable();
-  }
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 
-  @Override
-  public void configureViewResolvers(ViewResolverRegistry registry) {
-    registry.jsp();
-  }
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp();
+    }
 
-  @Override
-  public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("/resources/**")
-        .addResourceLocations("classpath:/static/")
-        .setCachePeriod(604800)
-        .resourceChain(false)
-        .addResolver(new VersionResourceResolver()
-            .addContentVersionStrategy("/**/*-content*.css")
-            .addFixedVersionStrategy("v1.0.0", "/**/*-fix.css")
-        );
-    registry.addResourceHandler("/webjars/**")
-        .addResourceLocations("classpath:/META-INF/resources/webjars/")
-        .resourceChain(false)
-        .addResolver(new EncodedResourceResolver());
-  }
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
+        // for custom css/js files
+        registry.addResourceHandler("/includes/**")
+            .addResourceLocations("/includes/")
+            .setCachePeriod(604800)
+            .resourceChain(false)
+            .addResolver(new VersionResourceResolver()
+                .addContentVersionStrategy("/*.css", "/*.js")
+            );
+
+        // for bootstrap
+        registry.addResourceHandler("/webjars/**")
+            .addResourceLocations("classpath:/META-INF/resources/webjars/")
+            .resourceChain(false)
+            .addResolver(new EncodedResourceResolver());
+    }
 }
